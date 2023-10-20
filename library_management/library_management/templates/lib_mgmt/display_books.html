@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Books</title>
+</head>
+<body>
+    <h1>Library Books</h1>
+    <ul>
+        {% for book in books %}
+            <li>
+                Title: {{ book.title }}<br>
+                Author: {{ book.author }}<br>
+                ISBN: {{ book.isbn }}<br>
+                Publication Year: {{ book.publication_year }}<br>
+                Genre: {{ book.genre }}<br>
+                <a href="{% url 'delete_book' book.isbn %}">Delete</a>
+                <a href="{% url 'edit_book' book.isbn %}">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_book' %}">Add a Book</a>
+</body>
+</html>
